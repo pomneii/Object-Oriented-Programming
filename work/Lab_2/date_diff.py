@@ -9,77 +9,11 @@
     - ให้สมมติว่าวันแรก จะต้องมาก่อนวันที่สองเสมอ ดังนั้นไม่ต้องตรวจสอบ
 """
 
-# def is_leap(year) :
-#     if year % 4 == 0 :
-#         if year % 100 == 0 :
-#             if year % 400 == 0 :
-#                 return 366
-#             else :
-#                 return 365
-#         else :
-#             return 366
-#     else :
-#         return 365
-
-# def day_of_year(day, month, year) :
-
-#     days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-#     if is_leap(year) == 366 :
-#         days_in_month[1] = 29
-
-#     for i in range(month - 1) :
-#         day = day + days_in_month[i]
-#     day_of_years = day
-#     return day_of_years
-
-# def day_in_year(year) :
-#     return is_leap(year)
-
-# def date_diff(data_first, data_second) :
-#     day_first = data_first[0]
-#     month_first = data_first[1]
-#     year_first = data_first[2]
-#     day_second = data_second[0]
-#     month_second = data_second[1]
-#     year_second = data_second[2]
-
-#     total_first = day_in_year(year_first)
-#     total_second = day_in_year(year_second)
-
-#     first = day_of_year(day_first, month_first, year_first)
-#     second = day_of_year(day_second, month_second, year_second)
-
-#     if year_first == year_second :
-#         result = second - first + 1
-#         return result
-#     else :
-#         differ = 0
-#         for i in range(year_first + 1, year_second) :
-#             differ += day_in_year(i)
-#         # return (total_first - first) + second + ((year_second - (year_first + 1)) * 365) + 1
-#         return (total_first - first) + second + differ + 1
-#         pass
-
-# data_first = [int(e) for e in input().split('-')]
-# data_second = [int(e) for e in input().split('-')]
-
-
-# x = date_diff(data_first, data_second)
-# print(x)
-
-
-"""
-    มีบัคตรงที่ถ้าปีมันห่างกัน 2 ปีเป็นต้นไป อะไรไม่รู้ คิดไม่ออก
-    line 56-57
-"""
-
-
 def is_leap(year) :
     if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) :
         return 366
     else :
-        return 365 
+        return 365
 
 
 def day_of_year(day, month, year) :
@@ -118,3 +52,8 @@ def date_diff(data_first, data_second) :
         for i in range(year_first + 1, year_second) :
             differ += day_in_year(i)
         return (total_first - first) + second + differ + 1
+    
+
+data_first = [int(e) for e in input().split('-')]
+data_second = [int(e) for e in input().split('-')]
+print(date_diff(data_first, data_second))
