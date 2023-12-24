@@ -14,17 +14,12 @@
     ของนักศึกษาคนนั้น เช่น {'65010001': '55.00' }
 """
 
-
 def add_score(subject_score, student, subject, score):
     if student in subject_score:  # check student id
-        if subject in subject_score[student]:  # check subject
-            subject_score[student][subject] = score  # update
-        else:
-            subject_score[student][subject] = score  # add more
+        subject_score[student][subject] = score  # add more
     else:
         subject_score[student] = {subject: score}  # add more
     return subject_score
-
 
 def calc_average_score(subject_score):
     result = {}
@@ -34,10 +29,8 @@ def calc_average_score(subject_score):
             sum += score
         avg = sum / len(scores)
         avg = "{:.2f}".format(avg)
-        # avg = str(avg)
         result.update({student: avg})
     return result
-
 
 subject_score = input()
 student = input()
