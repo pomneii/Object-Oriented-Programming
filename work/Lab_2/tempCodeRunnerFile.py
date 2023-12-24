@@ -1,2 +1,0 @@
-
-        final = [num for nu

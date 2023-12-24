@@ -35,45 +35,41 @@
 """
 
 record_collection = {
-        2548: {
-            'albumTitle': 'Slippery When Wet',
-            'artist': 'Bon Jovi',
-            'tracks': ['Let It Rock', 'You Give Love a Bad Name']
-        },
-        2468: {
-            'albumTitle': '1999',
-            'artist': 'Prince',
-            'tracks': ['1999', 'Little Red Corvette']
-        },
-        1245: {
-            'artist': 'Robert Palmer',
-            'tracks': []
-        },
-        5439: {
-            'albumTitle': 'ABBA Gold'
-        }
+    2548: {
+        'albumTitle': 'Slippery When Wet',
+        'artist': 'Bon Jovi',
+        'tracks': ['Let It Rock', 'You Give Love a Bad Name']
+    },
+    2468: {
+        'albumTitle': '1999',
+        'artist': 'Prince',
+        'tracks': ['1999', 'Little Red Corvette']
+    },
+    1245: {
+        'artist': 'Robert Palmer',
+        'tracks': []
+    },
+    5439: {
+        'albumTitle': 'ABBA Gold'
     }
+}
 
 def update_records(record, idd, propertyy, valuee) :
-    
-
-    record = record_collection
     if idd in record :
         if propertyy != 'tracks' and valuee != '' :
             record[idd][propertyy] = valuee
-        elif propertyy == 'tracks' :
-            if 'tracks' not in record[idd] :
-                record[idd]['tracks'] = [valuee]
-            elif propertyy == 'tracks' and valuee != '' :
-                record[idd]['tracks'].append(valuee)
-            elif propertyy == 'tracks' and valuee == '' :
-                record[idd].pop('tracks')
+        elif propertyy == 'tracks' and 'tracks' not in record[idd] :
+            record[idd][propertyy] = [valuee]
+        elif propertyy == 'tracks' and valuee != '' :
+            record[idd][propertyy].append(valuee)
+        elif valuee == '' :
+            record[idd].pop(propertyy)
         else :
             del record[idd][propertyy]
 
     return record
 
-result = update_records(record_collection,2548,"artist","")
+result = update_records(record_collection, 2548, "artist", "")
 print(result)
 # dict_rec = input()
 # idd = input()
