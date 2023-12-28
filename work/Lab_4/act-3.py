@@ -14,13 +14,11 @@
     โปรแกรมอาจแยกเขียนจากโปรแกรม 4.2 ก็ได้
 """
 
-
 class Student:
     def __init__(self, student_id, student_name):
         self.stu_id = student_id
         self.name = student_name
         self.student_menter = None
-
 
 # สายรหัส s1<s2<s3<s4 , s5 ไม่มีสายรหัส
 
@@ -29,56 +27,67 @@ student2 = Student('65000002', 'manchai')
 student3 = Student('64000003', 'worachai')
 student4 = Student('63000004', 'junior')
 student5 = Student('66000005', 'tin')
-stu = [student1, student2, student3, student4, student5]
+student_list = [student1, student2, student3, student4, student5]
 
 student1.student_menter = student2
 student2.student_menter = student3
 student3.student_menter = student4
 
 
-def find_stu(id):
-    for i in stu:
-        if id == i.stu_id:
+def find_student_in_list(id) :
+    for i in student_list :
+        if id == i.stu_id :
             return i
-
+    return False
 
 def have_menter_or_not(student_stu):
     if student_stu.student_menter != None:
         return True
     else:
-        False
-
+        return False
 
 def function3(id):
     list_ = []
-    student_stu = find_stu(id)
-    while (1):
-        if have_menter_or_not(student_stu):
-            list_.append(student_stu.student_menter)
-            student_stu = student_stu.student_menter
-        else:
-            break
+    if find_student_in_list(id) != False:
+        student_stu = find_student_in_list(id)
+        while (1):
+            if have_menter_or_not(student_stu):
+                list_.append(student_stu.student_menter)
+                student_stu = student_stu.student_menter
+            else:
+                break
 
-    n = len(list_)
-    list_result = []
-    for i in range(n):
-        list_result += [[list_[i].name, list_[i].stu_id]]
+        n = len(list_)
+        list_result = []
+        for i in range(n):
+            list_result += [[list_[i].name, list_[i].stu_id]]
 
-        
-    return list_result
+        return list_result
+    else :
+        return False
 
 def function4(stu_id_1, stu_id_2) :
+
+    if not find_student_in_list(stu_id_1) or not find_student_in_list(stu_id_2) :
+        return False
+
     list_result_1 = function3(stu_id_1)
     list_result_2 = function3(stu_id_2)
-    # if len(list_result_2) > len(list_result_1)
-    name = find_stu(stu_id_1).name
-    print(name)
-    for i in range(len(list_result_1) + 1) :
-        for j in range(len(list_result_1)) :
-            if list_result_1[i][j] == name :
+    if len(list_result_1) > len(list_result_2) :
+        name = find_student_in_list(stu_id_1).name
+        print(list_result_1)
+        for student in list_result_1 :
+            if stu_id_2 in student :
                 return True
-    # return list_result
-    # pass
-
+        return False
+        
+    elif len(list_result_1) < len(list_result_2) :
+        name = find_student_in_list(stu_id_2).name
+        print(list_result_2)
+        for student in list_result_2 :
+            if stu_id_1 in student :
+                return True
+        return False
+            
 print(function3('66000001'))
-print(function4('66000001', '64000003'))
+print(function4('65000002', '687401'))
