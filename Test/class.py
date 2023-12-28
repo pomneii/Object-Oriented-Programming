@@ -56,7 +56,7 @@
 # sub1.student_list.append(stu1)
 # sub1.student_list.append(stu2)
 
-# print(sub1.student_list)
+# print(sub1.student_list[0].name)
 
 # How to create class
 # class Employee :
