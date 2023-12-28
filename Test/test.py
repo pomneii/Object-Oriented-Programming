@@ -81,8 +81,22 @@
 # lis = [x for x in range(20) if x % 2 == 0]
 # print(lis)
 
-var = 100
-def bobo(kiki) :
-    return kiki + 1
+# var = 100
+# def bobo(kiki) :
+#     return kiki + 1
 
-print(bobo(var))
+# print(bobo(var))
+
+# str = input()
+# print(str)
+# print(str.capitalize())
+# print(str.title())
+
+num = int(input())
+str = input().split(' ')
+lis = []
+for i in range(len(str)) :
+    lis.append('e' * len(str[i]))
+
+result = ' '.join([e for e in lis])
+print(result)
