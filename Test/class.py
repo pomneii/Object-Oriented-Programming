@@ -15,14 +15,14 @@
 # print(stu2.id)
 
 # Constructor
-'''
-                           parameters
-    def __init__(self, number, client, balance) :
-        self.number = number
-        self.client = client
-        self.balace = balance
--- Instance Attributes -- Values
-'''
+# '''
+#                            parameters
+#     def __init__(self, number, client, balance) :
+#         self.number = number
+#         self.client = client
+#         self.balace = balance
+# -- Instance Attributes -- Values
+# '''
 
 # class Student :
 #     def __init__(self, id, name) :
