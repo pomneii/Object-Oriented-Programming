@@ -8,14 +8,8 @@
 """
 
 def is_leap(year) :
-    if year % 4 == 0 :
-        if year % 100 == 0 :
-            if year % 400 == 0 :
-                return 366
-            else :
-                return 365
-        else :
-            return 366
+    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) :
+        return 366
     else :
         return 365
 
@@ -31,10 +25,13 @@ def day_of_year(day, month, year) :
     day_of_years = day
     return day_of_years
 
+# add more
+def mix_func(x, y) :
+    return str(x) + "/" + str(y)
+
 day = int(input())
 month = int(input())
 year = int(input())
-x = day_of_year(day, month, year)
-print(x)
+print(mix_func(day_of_year(day, month, year),is_leap(year)))
 
 
