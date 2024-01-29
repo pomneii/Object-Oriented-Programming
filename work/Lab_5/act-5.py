@@ -218,7 +218,7 @@ def assign_grade(student, subject, grade) :
             if enroll.get_grade() :
                 return "Error"
             enroll.set_grade(grade)
-        # my bug cuz I put in out of condition so in tesscase 13 every subjects have None grade
+        # my bug cuz I put it out of condition so in tesscase 13 every subjects have None grade
         # print(enroll.get_student().get_student_name())
         # enroll.get_grade()
             return "Done"
