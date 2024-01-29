@@ -92,11 +92,20 @@
 # print(str.capitalize())
 # print(str.title())
 
-num = int(input())
-str = input().split(' ')
-lis = []
-for i in range(len(str)) :
-    lis.append('e' * len(str[i]))
+# num = int(input())
+# str = input().split(' ')
+# lis = []
+# for i in range(len(str)) :
+#     lis.append('e' * len(str[i]))
 
-result = ' '.join([e for e in lis])
-print(result)
+# result = ' '.join([e for e in lis])
+# print(result)
+
+# class Solution:
+#     def lengthOfLastWord(self, s: str) -> int:
+#         s = s.split()
+#         return len(s[len(s) - 1])
+
+# x = input()
+# y = Solution()
+# print(y.lengthOfLastWord(x))
